@@ -1,0 +1,48 @@
+PHP Online Function Tester:
+
+http://php.fnlist.com/crypt_hash/md5
+
+For testing, set your user_id and user_password to same, i.e greg, greg
+
+The password, greg in this case, is then 'hashed' using md5 to create the 32-bit string. When you sign-on the users table is queried. The md5
+
+------------------------------------
+
+Step#1: Create your 2 tables:
+
+CREATE TABLE users(
+user_id int(10) unsigned AUTO_INCREMENT PRIMARY KEY NOT NULL,
+user_name text NOT NULL,
+user_hash char(32) NOT NULL) ENGINE = InnoDB
+
+CREATE TABLE messages(
+message_id int(10) unsigned AUTO_INCREMENT PRIMARY KEY NOT NULL,
+message_text varchar(2000) NOT NULL,
+user_id int(10) unsigned NOT NULL,
+time_stamp timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL) ENGINE = InnoDB;
+
+Step#2: Populate the user table with user records:
+
+INSERT INTO users (`user_id`,`user_name`, `user_hash`)
+VALUES ('','testuser1', '41da76f0fc3ec62a6939e634bfb6a342'),
+('','testuser2', '8c80f68e3d3a1e6f56f84d40060ad9f3'),
+('','testuser3', '67ebfe800a590849da345608ab410bcd');
+
+Step#3: Populate the messages table with message records. Do one at a time with the following query:
+
+INSERT INTO messages(`message_id`,`message_txt`, `user_id`,`time_stamp`)
+VALUES ('','Does anybody know how to insert rows into a table?','3',CURRENT_TIMESTAMP);
+
+The session variable contains the user_id of the user when logging-in. When a user posts a message, the session variable ( which now holds the user_id) is sent to the messages table as user_id.
+
+Step#4: Select the data fields required for the blog:
+
+* remember that each record is loaded into an associate array. You must loop through the associative array to pick off key name and key value pairs. The key name is the column name, the key value is what is inside.
+
+SELECT m.message_text, u.user_name, m.time_stamp
+FROM users AS u INNER JOIN messages AS m 
+ON u.user_id = m.user_id;
+
+Special Notes:
+
+1) The session variable contains the user_id of the user when logging-in. When a user posts a message, the session variable ( which now holds the user_id) is sent to the messages table as user_id.

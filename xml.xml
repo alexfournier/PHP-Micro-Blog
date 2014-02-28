@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump
+- version 3.5.1
+- http://www.phpmyadmin.net
+-
+- Host: localhost
+- Generation Time: Mar 11, 2013 at 03:33 AM
+- Server version: 5.5.25
+- PHP Version: 5.4.4
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="http://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="microblog" collation="utf8_general_ci" charset="utf8">
+            <pma:table name="messages">
+                CREATE TABLE `messages` (
+                  `message_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+                  `message_txt` varchar(2000) NOT NULL,
+                  `user_id` int(10) unsigned NOT NULL,
+                  `time_stamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                  PRIMARY KEY (`message_id`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8;
+            </pma:table>
+            <pma:table name="users">
+                CREATE TABLE `users` (
+                  `user_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+                  `user_name` text NOT NULL,
+                  `user_hash` char(32) NOT NULL,
+                  PRIMARY KEY (`user_id`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8;
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+
+    <!--
+    - Database: 'microblog'
+    -->
+    <database name="microblog">
+        <!-- Table messages -->
+        <table name="messages">
+            <column name="message_id">46</column>
+            <column name="message_txt">First Blog Post</column>
+            <column name="user_id">47</column>
+            <column name="time_stamp">2013-03-10 22:10:57</column>
+        </table>
+        <table name="messages">
+            <column name="message_id">47</column>
+            <column name="message_txt">second post - IT WORKS!</column>
+            <column name="user_id">48</column>
+            <column name="time_stamp">2013-03-10 22:13:32</column>
+        </table>
+        <table name="messages">
+            <column name="message_id">48</column>
+            <column name="message_txt">its working</column>
+            <column name="user_id">48</column>
+            <column name="time_stamp">2013-03-10 22:14:03</column>
+        </table>
+        <table name="messages">
+            <column name="message_id">49</column>
+            <column name="message_txt">this is a longer post to see what it will look like with a longer post with more text then the others and a longer post wos is a longer post to see what it will look like with a longer post with more text then the others and a longer post wos is a longer post to see what it will look like with a longer post with more text then the others and a longer post wos is a longer post to see what it will look like with a longer post with more text then the others and a longer post wos is a longer post to see what it will look like with a longer post with more text then the others and a longer post wos is a longer post to see what it will look like with a longer post with more text then the others and a longer post wo</column>
+            <column name="user_id">49</column>
+            <column name="time_stamp">2013-03-10 22:15:40</column>
+        </table>
+        <table name="messages">
+            <column name="message_id">50</column>
+            <column name="message_txt">testing Blog post order</column>
+            <column name="user_id">49</column>
+            <column name="time_stamp">2013-03-10 22:21:44</column>
+        </table>
+        <table name="messages">
+            <column name="message_id">51</column>
+            <column name="message_txt">more blog posts</column>
+            <column name="user_id">49</column>
+            <column name="time_stamp">2013-03-10 22:29:13</column>
+        </table>
+        <table name="messages">
+            <column name="message_id">52</column>
+            <column name="message_txt">alex blog post - typing typing type type
+alex blog post - typing typing type type
+alex blog post - typing typing type type
+alex blog post - typing typing type typealex blog post - typing typing type typealex blog post - typing typing type type</column>
+            <column name="user_id">50</column>
+            <column name="time_stamp">2013-03-10 22:29:58</column>
+        </table>
+        <!-- Table users -->
+        <table name="users">
+            <column name="user_id">47</column>
+            <column name="user_name">user</column>
+            <column name="user_hash">1a1dc91c907325c69271ddf0c944bc72</column>
+        </table>
+        <table name="users">
+            <column name="user_id">48</column>
+            <column name="user_name">newuser2</column>
+            <column name="user_hash">1a1dc91c907325c69271ddf0c944bc72</column>
+        </table>
+        <table name="users">
+            <column name="user_id">49</column>
+            <column name="user_name">blogUser</column>
+            <column name="user_hash">1a1dc91c907325c69271ddf0c944bc72</column>
+        </table>
+        <table name="users">
+            <column name="user_id">50</column>
+            <column name="user_name">alex</column>
+            <column name="user_hash">1a1dc91c907325c69271ddf0c944bc72</column>
+        </table>
+    </database>
+</pma_xml_export>
