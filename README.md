@@ -1,7 +1,9 @@
 PHP-Micro-Blog
 ==============
 
-mini blog made with php, mySQL, SQLite
+FOLLOW LINK: http://alexfournier.netne.net/midterm/index.php 
+
+Mini blog made with php, mySQL, SQLite
 
 Author Name : Alex Fournier
 
